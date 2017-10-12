@@ -1,0 +1,266 @@
+<style type="text/css">
+		.tombol{
+		margin-top:30px;
+	}
+	.divsatu{
+		z-index:3;
+		width:100%;
+		height:100%;
+		padding:45px 0px 0px 35px;
+	}
+	.divimg{
+/*		width:120px;
+		height:120px;*/
+		float:left;
+		margin-top:0;
+	}
+	.divdua{
+		float:left;
+		padding: 0 8px;
+		font-size: 14px;
+		font-weight: bold;
+		color:white;
+	}
+
+	.divimg_normal{
+		width:120px;height:120px;float:left;
+	}
+	.divdua_normal{
+		float:left;padding:10px 0px 0px 20px;font-size: 15px;font-weight: bold;color:white;
+	}
+
+		.yusup{
+			width:705px;
+			height:100%;
+		}
+	@media (max-width: 767px) {
+		.information-blocks .df {
+			padding: 0;
+			margin-top: 25px;
+		}
+		.hargae{
+			height:81px;
+			text-align: center;
+		}
+
+		.product-beranda{
+			height:210px;
+		}
+
+		.tombol{
+			margin-top:35px;
+		}
+
+		.merahh{
+			visibility: hidden;
+		}
+		.yusup{
+			width:300px;
+		}
+	}
+
+</style>
+<div class="information-entry">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<p style="color: red; margin-bottom: 15px;"><b>Website Agen / Reseller Anda</b> : rongjihong.pinopi.com</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+		<div class="col-md-12" style="padding:2px">
+			<div id="slideshow2" style="background-color: white;background-image:url('<?php echo $url_web."/img/info-agen-merah.png"; ?>');background-repeat: no-repeat; background-size: contain; height: 164px">
+				<div class="divsatu" >
+					<img src="<?php echo $url_web."/img/profile.png"; ?>" class="divimg" style="width:75px;height:75px;">
+					<div class="divdua">
+						AGUS ARYANTO<br>
+						Paket : Agen<br>
+						082124872587
+						<br><br>
+						<a href="#" style="color: yellow">Edit profile | </a>
+						<a href="#" style="color: yellow">Logout</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12" style="padding:2px;padding-top:25px;">
+		<div>
+			<div id="slideshow3">
+				<?php
+				$data_banner = getDataByCondition("tbl_banner","tipe_banner = 'panjang'","id_banner");
+					$getData = $data_banner->fetch_object();
+					?>
+					   <div>
+						 <img onClick="window.open('<?php echo $getData->url_banner;?>')" src="<?php echo $url_web."/".$getData->url_foto; ?>">
+					   </div>
+					   <div>
+						 <img onClick="window.open('<?php echo $getData->url_banner;?>')" src="<?php echo $url_web."/".$getData->url_foto; ?>">
+					   </div>
+					<?php
+				?>
+			</div>
+		</div>
+		</div>
+	</div>
+		<div class="col-md-8">
+			
+		<div class="col-md-12" style="padding:2px">
+			<div id="slideshow4" style="height: 362px">
+				<?php
+				$data_banner = getDataByCondition("tbl_banner","tipe_banner = 'panjang'","rand()");
+				if($data_banner->num_rows > 1){
+					while($getData = $data_banner->fetch_object()){
+						?>
+						   <div>
+							 <img onClick="window.open('<?php echo $getData->url_banner;?>')" src="<?php echo $url_web."/".$getData->url_foto; ?>">
+						   </div>
+						<?php
+					}
+				}else{
+					$getData = $data_banner->fetch_object();
+					?>
+					   <div>
+						 <img onClick="window.open('<?php echo $getData->url_banner;?>')" src="<?php echo $url_web."/".$getData->url_foto; ?>">
+					   </div>
+					   <div>
+						 <img onClick="window.open('<?php echo $getData->url_banner;?>')" src="<?php echo $url_web."/".$getData->url_foto; ?>">
+					   </div>
+					<?php
+				}
+				?>
+			</div>
+		</div>
+	
+		</div>
+	</div>
+	
+	<div class="information-blocks" style="border-top:1px solid #dfdfdf;padding:30px 0px 0px 0px;margin-bottom: 30px;">
+		<div class="tabs-container">
+						<div>
+							<div class="tabs-entry">
+								<div class="row shop-grid grid-view">
+									<?php
+										$data_produk = getDataByCondition("tbl_produk","id_produk != 0","rand() DESC LIMIT 0,4");
+										if($data_produk->num_rows > 0){
+											while($getData = $data_produk->fetch_object()){
+												$kategori_produk = getDataByCollumn("tbl_kategori","id_kategori",$getData->id_kategori)->fetch_object();
+									?>
+												<div class="col-md-3 col-xs-6">
+													<div class="product-slide-entry product-beranda">
+														<div class="product-image">
+															<img src="<?php echo $url_web.'/'.$getData->url_foto;?>" alt="" />
+															<div class="bottom-line">
+																<a class="bottom-line-a" href="<?php echo $url_web.'/produk/'.strtolower(str_replace(" ","-",$getData->nama_produk));?>"><i class="fa fa-eye"></i> Lihat Produk</a>
+															</div>
+														</div>
+														<div class="col-md-8 hargae">
+														<a class="title" style="color:white;text-align:left;margin-left: 5px;" href="<?php echo $url_web.'/produk/'.strtolower(str_replace(" ","-",$getData->nama_produk));?>"><?php echo $getData->nama_produk;?></a>
+														<div class="price" style="color:white;text-align:left;margin-left: 5px;" >
+															<?php
+																if(getProdukHarga($getData->id_produk) != getProdukHargaDiskon($getData->id_produk)){
+																	echo '
+																		<div class="prev" style="color:white;text-align:left;">Rp'.setHargaRupiah(getProdukHarga($getData->id_produk)).'</div>
+																		<div class="current" style="color:white;text-align:left;">Rp'.setHargaRupiah(getProdukHargaDiskon($getData->id_produk)).'</div>
+																	';
+																}else{
+																	echo '
+																		<div class="current" style="color:white;text-align:left;">Rp'.setHargaRupiah(getProdukHarga($getData->id_produk)).'</div>
+																	';
+																}
+															?>
+														</div>
+														</div>
+														<div class="col-md-4 tombol">
+														<a class="btn btn-primary" style="margin-top:-10px;">BELI</a>
+														</div>
+													</div>
+													<div class="clear"></div>
+												</div>
+									<?php		
+											}
+										}else{
+											echo "<label><center>Maaf, belum ada data tersedia.</center></label><br>";
+										}
+									?>
+								</div>
+							</div>
+						</div>
+					</div>
+	</div>
+	<div class="information-blocks">
+	<div class="col-md-12">
+	<div class="row" style="margin-bottom: 20px; font-family: Arial">
+		<div class="col-md-9" style="background-color: #4586C8;padding: 10px;">
+			<div class="row">
+				<div class="col-md-2">
+					<img src="img/profile.png" style="margin: 0 auto; display: block;" class="img-responsive">
+				</div>
+				<div class="col-md-10" style="color: #fff; line-height: 20px;">
+					Monotonectally monetize team driven platforms through high standards in value. Phosfluorescently create sustainable quality vectors rather than bricks-and-clicks meta-services. Dramatically underwhelm multimedia based markets rather than functionalized bandwidth. Monotonectally utilize an expanded array of meta-services vis-a-vis resource sucking meta-services. Interactively enable professional models rather than backward-compatible channels.
+					<div style="margin: 10px 0">
+						<p>June Melinda</p>
+						<p>Karyawan</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 merahh" style="height: 180px; width: 258px; background-color: #C52227; margin-left:5px;"></div>
+	</div>
+	</div>
+	</div>
+	<hr>
+	<div class="information-blocks">
+		<div class="row" style="margin-bottom: 20px;">
+		<div class="col-md-12">
+				<div class="col-md-4" style="padding:0px">
+					<div id="slideshow5">
+						  <?php
+					$data_banner = getDataByCondition("tbl_banner","tipe_banner = 'persegi'","rand()");
+					if($data_banner->num_rows > 1){
+						while($getData = $data_banner->fetch_object()){
+							?>
+							   <div>
+								 <img onClick="window.open('<?php echo $getData->url_banner;?>')" src="<?php echo $url_web."/".$getData->url_foto; ?>">
+							   </div>
+							<?php
+						}
+					}else{
+						$getData = $data_banner->fetch_object();
+						?>
+						   <div>
+							 <img onClick="window.open('<?php echo $getData->url_banner;?>')" src="<?php echo $url_web."/".$getData->url_foto; ?>">
+						   </div>
+						   <div>
+							 <img onClick="window.open('<?php echo $getData->url_banner;?>')" src="<?php echo $url_web."/".$getData->url_foto; ?>">
+						   </div>
+						<?php
+					}
+				?>
+					</div>
+				</div>
+		<style type="text/css">
+		@media(max-width: 767px) {
+			.cd {
+				margin-top: 25px;
+				padding: 0;
+			}
+		}
+		</style>
+		
+		<div class="information-blocks">
+			<div class="col-md-8 col-xs-12 cd">
+				<div id="slideshow">
+				<iframe class="yusup" src="https://www.youtube.com/embed/nsSBrCNZ-Lw?autoplay=0&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+    	$(".kotak-login").html("<h3 style='font-size: 20px;text-align: center'><strong>Logout</strong></h3>");
+    	$(".box-login").html("<h3 style='color: #fff;text-align: center'><strong>Logout</strong></h3>");
+    });
+</script>

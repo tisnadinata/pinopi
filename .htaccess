@@ -1,0 +1,84 @@
+SetEnv TZ Asia/Jakarta
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+
+#php_flag display_errors off
+php_flag allow_url_include 1
+php_value session.cookie_domain .pinopi.com
+
+#ErrorDocument 404 http://pinopi.com/404
+
+RewriteRule ^api/get/(.*)$ api/get.php?call=$1
+RewriteRule ^api/post/(.*)$ api/post.php?call=$1
+
+RewriteRule ^aff/(.*)$ index.php?page=beranda&link_affiliate=$1 
+
+RewriteRule ^404$ index.php?page=404
+
+RewriteRule ^beranda$ index.php?page=beranda
+
+RewriteRule ^cari$ index.php?page=cari
+
+RewriteRule ^faq$ index.php?page=faq
+
+RewriteRule ^news$ index.php?page=news
+
+RewriteRule ^news/(.*)$ index.php?page=news-detail&berita=$1
+
+RewriteRule ^cara-pemesanan$ index.php?page=cara-pemesanan
+
+RewriteRule ^edit-profile$ index.php?page=edit-profile
+
+RewriteRule ^tentang-kami$ index.php?page=tentang-kami
+
+RewriteRule ^bisnis-offer$ index.php?page=bisnis-offer
+
+RewriteRule ^tim-bisnis$ index.php?page=tim-bisnis
+
+RewriteRule ^promosi-otomatis$ index.php?page=promosi-otomatis
+
+RewriteRule ^income$ index.php?page=income
+
+RewriteRule ^testimoni$ index.php?page=testimoni
+
+RewriteRule ^home-member$ index.php?page=home-member
+
+RewriteRule ^cart$ index.php?page=cart
+
+RewriteRule ^checkout$ index.php?page=checkout
+
+RewriteRule ^syarat-ketentuan$ index.php?page=syarat-ketentuan
+
+RewriteRule ^daftar$ index.php?page=daftar
+
+RewriteRule ^kebijakan-pribadi$ index.php?page=kebijakan-pribadi
+
+RewriteRule ^konfirmasi-pembayaran$ index.php?page=konfirmasi-pembayaran
+
+RewriteRule ^cek-transaksi$ index.php?page=cek-transaksi
+
+RewriteRule ^kategori$ index.php?page=kategori&kategori=semua&halaman=1
+RewriteRule ^kategori/([a-z-]+)$ index.php?page=kategori&kategori=$1&halaman=1
+RewriteRule ^kategori/([0-9]+)$ index.php?page=kategori&kategori=semua&halaman=$1
+RewriteRule ^kategori/([a-z-]+)/([0-9]+)$ index.php?page=kategori&kategori=$1&halaman=$2
+
+RewriteRule ^produk$ index.php?page=paket-produk
+RewriteRule ^produk/([A-Za-z0-9-]+)$ index.php?page=produk&produk=$1
+
+RewriteRule ^paket$ index.php?page=paket-produk
+RewriteRule ^paket/([A-Za-z0-9-]+)$ index.php?page=detail-paket&paket=$1
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://www.pinopi.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.pinopi.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://pinopi.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://pinopi.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.pinopi.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^https://www.pinopi.com$      [NC]
+RewriteRule .*\.()$ - [F,NC]
+
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit

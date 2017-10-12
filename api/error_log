@@ -1,0 +1,19 @@
+[30-Sep-2017 21:06:54 Asia/Jakarta] PHP Notice:  Undefined offset: 1 in /home/pinopi/public_html/api/post.php on line 7
+[30-Sep-2017 21:06:54 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$access_token in /home/pinopi/public_html/api/config.php on line 238
+[30-Sep-2017 21:06:54 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$device_token in /home/pinopi/public_html/api/config.php on line 239
+[01-Oct-2017 20:03:47 Asia/Jakarta] PHP Notice:  Undefined offset: 1 in /home/pinopi/public_html/api/post.php on line 7
+[01-Oct-2017 20:03:47 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$access_token in /home/pinopi/public_html/api/config.php on line 238
+[01-Oct-2017 20:03:47 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$device_token in /home/pinopi/public_html/api/config.php on line 239
+[02-Oct-2017 09:46:41 Asia/Jakarta] PHP Notice:  Undefined offset: 1 in /home/pinopi/public_html/api/post.php on line 7
+[02-Oct-2017 09:46:41 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$access_token in /home/pinopi/public_html/api/config.php on line 238
+[02-Oct-2017 09:46:41 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$device_token in /home/pinopi/public_html/api/config.php on line 239
+[04-Oct-2017 21:47:09 Asia/Jakarta] PHP Notice:  Undefined offset: 1 in /home/pinopi/public_html/api/post.php on line 7
+[04-Oct-2017 21:47:09 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$access_token in /home/pinopi/public_html/api/config.php on line 238
+[04-Oct-2017 21:47:10 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$device_token in /home/pinopi/public_html/api/config.php on line 239
+[04-Oct-2017 21:48:15 Asia/Jakarta] PHP Notice:  Undefined offset: 1 in /home/pinopi/public_html/api/post.php on line 7
+[04-Oct-2017 21:48:15 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$access_token in /home/pinopi/public_html/api/config.php on line 238
+[04-Oct-2017 21:48:15 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$device_token in /home/pinopi/public_html/api/config.php on line 239
+[04-Oct-2017 21:50:54 Asia/Jakarta] PHP Notice:  Undefined offset: 1 in /home/pinopi/public_html/api/post.php on line 7
+[04-Oct-2017 21:50:54 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$access_token in /home/pinopi/public_html/api/config.php on line 238
+[04-Oct-2017 21:50:54 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$device_token in /home/pinopi/public_html/api/config.php on line 239
+[04-Oct-2017 21:53:22 Asia/Jakarta] PHP Notice:  Trying to get property of non-object in /home/pinopi/public_html/api/config.php on line 442

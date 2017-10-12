@@ -1,0 +1,2 @@
+[03-May-2017 08:34:09 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/pinopi/public_html/adminku/transaksi.php on line 81
+[03-May-2017 08:34:20 UTC] PHP Notice:  Trying to get property of non-object in /home/pinopi/public_html/adminku/beranda.php on line 18
